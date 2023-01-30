@@ -5,7 +5,21 @@
 @endsection
 
 @section('content')
-    <h1 class="text-decoration-underline">{{ $type->name }}</h1> 
+    <h1 class="mb-3">Projects with "<span class="text-decoration-underline">{{ $type->name }}</span>" type:</h1> 
+
+    @if ( count($type->projects) > 0 )
+        <ul>
+            @foreach ($type->projects as $project)
+                <li>
+                    <a href="{{ route('admin.projects.show', $project) }}">
+                        {{ $project->project_title }}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    @else 
+        <h3 class="text-danger text-decoration-underline">None yet.</h3>
+    @endif
 
     {{-- Nav links --}}
     <div class="mt-5">

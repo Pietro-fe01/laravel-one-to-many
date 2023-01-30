@@ -63,7 +63,10 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white 
-                                    {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-secondary' : '' }}"
+                                    {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-secondary' : '' }}
+                                    {{ Route::currentRouteName() == 'admin.types.create' ? 'bg-secondary' : '' }}
+                                    {{ Route::currentRouteName() == 'admin.types.show' ? 'bg-secondary' : '' }}
+                                    {{ Route::currentRouteName() == 'admin.types.edit' ? 'bg-secondary' : '' }}"
                                     href="{{route('admin.types.index')}}">
                                         <i class="fa-brands fa-magento fa-lg fa-fw"></i> Types
                                     </a>

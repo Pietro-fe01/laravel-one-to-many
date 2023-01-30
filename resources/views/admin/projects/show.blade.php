@@ -6,7 +6,16 @@
 
 @section('content')
     <h1 class="text-decoration-underline my-3">{{ $project->project_title }}</h1>
-    <h3>Project type: {{ $project->type?->name ?: 'No type was provided.' }}</h3>
+
+    @if ( $project->type?->name )
+        <h3> Type:
+            <a href="{{ route('admin.types.show', $project->type) }}">
+                {{ $project->type->name }}
+            </a>
+        </h3>
+    @else
+        <h3>No type was provided</h3>
+    @endif
 
     <div>
         <h3 class="m-0 mt-4">Customer:</h3>
