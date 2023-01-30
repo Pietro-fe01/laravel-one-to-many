@@ -6,6 +6,7 @@
 
 @section('content')
     <h1 class="text-decoration-underline my-3">{{ $project->project_title }}</h1>
+    <h3>Project type: {{ $project->type?->name ?: 'No type was provided.' }}</h3>
 
     <div>
         <h3 class="m-0 mt-4">Customer:</h3>
