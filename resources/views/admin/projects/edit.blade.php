@@ -52,7 +52,7 @@
                 @endif
             </div>
             
-            <div class="my-4">
+            <div class="mt-4">
                 <img id="output" @if( $project->cover_image ) src="{{ asset("storage/$project->cover_image") }}" alt="img-preview" @endif class="fluid-img w-25">
             </div>
 
@@ -81,6 +81,20 @@
                         reader.readAsDataURL(event.target.files[0]);
                     };
             </script>
+        </div>
+
+        {{-- Select with all types avaiable --}}
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Types</label>
+            <select name="type_id" id="type_id" class="form-select">
+                <option value="" selected hidden>Select type</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" {{ old('type_id', $project->type_id) == $type->id ? 'selected' : null }}>{{ $type->name }}</option>
+                @endforeach
+            </select>
+            @error('type_id')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-success">EDIT</button>
