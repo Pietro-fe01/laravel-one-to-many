@@ -10,4 +10,8 @@ class Project extends Model
     use HasFactory;
 
     protected $guarded = ['slug', 'cover_image'];
+
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
 }
