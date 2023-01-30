@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('page-title')
-    Projects
+    Types
 @endsection
 
 @section('content')
@@ -43,7 +43,7 @@
                                 <li><a class="dropdown-item" href="{{ route('admin.types.show', $type) }}">Show details</a></li>
                                 <li><a class="dropdown-item" href="{{ route('admin.types.edit', $type) }}">Edit</a></li>
                             </ul>
-                            
+
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger mt-4" data-bs-toggle="modal" data-bs-target="#modal{{ $type->id }}">
                                 Delete
